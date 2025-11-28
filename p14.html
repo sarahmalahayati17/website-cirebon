@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrivaKarsa | Les Privat Unggulan & Inovatif</title>
+    <!-- Memuat Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbf9fb;
+        }
+        .text-shadow-custom {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .promo-card {
+            background: linear-gradient(135deg, #ef58e0, #6f8cf4); /* Biru Tua ke Hijau */
+            box-shadow: 0 10px 25px rgba(12, 87, 185, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(30, 58, 138, 0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 15px 35px rgba(16, 185, 129, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(30, 58, 138, 0.4); }
+        }
+        .mentor-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer; /* Menambah kursor pointer untuk menunjukkan elemen dapat diklik */
+        }
+        .mentor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .step-card {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .step-card:hover {
+            background-color: #f0f9ff;
+        }
+        /* Style untuk Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            padding-top: 50px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 90%;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+        @keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+        }
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-blue-800">Priva<span class="text-green-500">Karsa</span></h1>
+            <nav class="hidden md:flex space-x-8 font-semibold">
+                <a href="#promo" class="text-gray-600 hover:text-green-600 transition duration-300">Promo Hari Ini</a>
+                <a href="#jadwal" class="text-gray-600 hover:text-green-600 transition duration-300">Jadwal & Tarif</a>
+                <a href="#mentor" class="text-gray-600 hover:text-green-600 transition duration-300">Mentor Kami</a>
+                <a href="#daftar" class="text-blue-600 hover:text-blue-800 transition duration-300 border-b-2 border-transparent hover:border-blue-600">Daftar Sekarang!</a>
+            </nav>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#promo" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Promo Hari Ini</a>
+            <a href="#jadwal" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Jadwal & Tarif</a>
+            <a href="#mentor" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Mentor Kami</a>
+            <a href="#daftar" class="block py-2 px-4 text-sm text-blue-600 hover:bg-blue-50">Daftar Sekarang!</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white pt-16 pb-20 md:pt-24 md:pb-32 relative overflow-hidden">
+        <!-- Latar belakang lingkaran/wave (dekorasi) -->
+        <div class="absolute inset-0 z-0 opacity-10" style="background-image: radial-gradient(circle at 10% 20%, rgba(240, 240, 240, 0.3) 0%, rgba(240, 240, 240, 0) 60%);"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight text-shadow-custom">
+                Wujudkan Potensi Terbaikmu Bersama PrivaKarsa
+            </h2>
+            <p class="text-xl md:text-2xl mb-8 font-light max-w-3xl mx-auto">
+                Les privat inovatif, fokus pada pengembangan mindset belajar dan penguasaan materi. Kami datang ke rumah Anda!
+            </p>
+            <a href="#daftar" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-xl">
+                Daftar Gratis Coba 1x Pertemuan
+            </a>
+            <div class="mt-12">
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo 24 Jam Non-Stop (Section 1) -->
+    <section id="promo" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="promo-card text-white p-8 md:p-12 rounded-2xl text-center">
+                <p class="text-xl font-semibold mb-2">PROMO EKSLUSIF HARI INI!</p>
+                <h3 class="text-4xl md:text-5xl font-extrabold mb-4">
+                    DISKON SPESIAL 24 JAM
+                </h3>
+                <p class="text-lg md:text-xl mb-6">
+                    Hanya untuk 20 pendaftar pertama hari ini, dapatkan *Gratis Modul Belajar Premium & Cashback Rp 100.000*!
+                </p>
+                <div class="flex justify-center items-center space-x-4 mb-8">
+                    <div class="bg-white text-blue-800 p-4 rounded-lg font-mono font-bold text-3xl shadow-lg">
+                        <span id="hours">00</span><span class="text-sm block font-normal">Jam</span>
+                    </div>
+                    <div class="bg-white text-blue-800 p-4 rounded-lg font-mono font-bold text-3xl shadow-lg">
+                        <span id="minutes">00</span><span class="text-sm block font-normal">Menit</span>
+                    </div>
+                    <div class="bg-white text-blue-800 p-4 rounded-lg font-mono font-bold text-3xl shadow-lg">
+                        <span id="seconds">00</span><span class="text-sm block font-normal">Detik</span>
+                    </div>
+                </div>
+                <a href="#daftar" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-extrabold py-3 px-10 rounded-full text-lg transition duration-300">
+                    Klaim Diskon Sekarang!
+                </a>
+                <p class="mt-4 text-sm opacity-80">Tersisa <span id="slots-left" class="font-bold">20</span> Slot</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jadwal & Tarif (Section 2) -->
+    <section id="jadwal" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Jadwal Fleksibel & Tarif Terjangkau</h2>
+            <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">Kami menyesuaikan jadwal belajar dengan kesibukan Anda. Pilih paket yang paling cocok!</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Paket 1: Basic -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                    <h4 class="text-2xl font-bold text-blue-700 mb-2">Paket Siap</h4>
+                    <p class="text-4xl font-extrabold mb-4 text-gray-900">Rp 120k <span class="text-sm font-normal text-gray-500">/ Pertemuan</span></p>
+                    <ul class="text-left space-y-3 mb-6 text-gray-700">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 8x Pertemuan/Bulan</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Durasi 90 Menit</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Fokus Materi Sekolah</li>
+                    </ul>
+                    <a href="#daftar" class="block w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition duration-300">Pilih Paket Siap</a>
+                </div>
+
+                <!-- Paket 2: Prioritas (Paling Populer) -->
+                <div class="bg-blue-50 p-6 rounded-xl shadow-2xl border-t-4 border-green-500 transform scale-105 relative">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl">POPULER</div>
+                    <h4 class="text-2xl font-bold text-green-700 mb-2">Paket Juara</h4>
+                    <p class="text-5xl font-extrabold mb-4 text-gray-900">Rp 100k <span class="text-sm font-normal text-gray-500">/ Pertemuan</span></p>
+                    <ul class="text-left space-y-3 mb-6 text-gray-700">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> *16x Pertemuan/Bulan (Hemat!)*</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Durasi 90 Menit</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Fokus Materi + Latihan Soal Olimpiade</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Gratis Modul Premium (Sesuai Promo)</li>
+                    </ul>
+                    <a href="#daftar" class="block w-full bg-green-500 hover:bg-green-600 text-white font-extrabold py-3 rounded-lg transition duration-300">Pilih Paket Juara</a>
+                </div>
+
+                <!-- Paket 3: Intensif -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                    <h4 class="text-2xl font-bold text-blue-700 mb-2">Paket Kilat</h4>
+                    <p class="text-4xl font-extrabold mb-4 text-gray-900">Rp 150k <span class="text-sm font-normal text-gray-500">/ Pertemuan</span></p>
+                    <ul class="text-left space-y-3 mb-6 text-gray-700">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sesuai Kebutuhan (Min. 4x)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Durasi 120 Menit</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Persiapan Ujian Nasional/Masuk PTN</li>
+                    </ul>
+                    <a href="#daftar" class="block w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition duration-300">Pilih Paket Kilat</a>
+                </div>
+            </div>
+            <p class="mt-10 text-gray-500 text-sm italic">Tarif di atas berlaku untuk jenjang SD-SMP (semua mata pelajaran). Jenjang SMA/Olimpiade, hubungi CS.</p>
+        </div>
+    </section>
+
+    <!-- Mentor Kami & Tutorial Belajar (Section 3) -->
+    <section id="mentor" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Kenalan Dengan Mentor Ahli Kami</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Setiap mentor PrivaKarsa memiliki strategi belajar unik dan teruji. Klik kartu untuk melihat detail metode mereka!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Mentor 1: Budi Santoso (Matematika) - Menambahkan data-mentor dan onclick -->
+                <div class="mentor-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500" onclick="showMentorDetail('Budi Santoso, S.Mat.', 'Matematika & Logika (SD-SMA)', '#red-500', 'BS', 'Belajar Matematika itu seperti memecahkan teka-teki, bukan menghafal rumus!','*Visualisasi Konsep* (Setiap bab diawali dengan ilustrasi dunia nyata); *Struktur Terbalik* (Mulai dari soal sulit, kemudian mundur ke konsep dasarnya); *Latihan Mandiri* (Wajib kerjakan minimal 3 soal tanpa bantuan, lalu dibahas tuntas).')">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/80x80/22c55e/ffffff?text=BS" alt="Foto Budi Santoso" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">Budi Santoso, S.Mat.</h4>
+                            <p class="text-red-500 font-semibold">Spesialis: Matematika & Logika (SD-SMA)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Belajar Matematika itu seperti memecahkan teka-teki, bukan menghafal rumus!"</p>
+                    <h5 class="font-bold text-blue-600 mb-2">Tutorial Belajar: Metode 'Logika Dasar'</h5>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li>Visualisasi Konsep</li>
+                        <li>Struktur Terbalik</li>
+                        <li>Latihan Mandiri</li>
+                    </ul>
+                </div>
+
+                <!-- Mentor 2: Rina Wijaya (Sains) - Menambahkan data-mentor dan onclick -->
+                <div class="mentor-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500" onclick="showMentorDetail('Rina Wijaya, M.Si.', 'Fisika & Biologi (SMP-SMA)', '#blue-500', 'RW', 'Sains itu bukan teori, tapi eksperimen yang bisa dilihat dan dirasakan!','*Simulasi Digital* (Menggunakan aplikasi simulasi untuk melihat reaksi/proses); *Mind Map Kreatif* (Membuat peta pikiran berwarna untuk koneksi antar-konsep); *Jurnal Pertanyaan* (Siswa wajib mencatat 5 pertanyaan unik di akhir sesi).')">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/80x80/3b82f6/ffffff?text=RW" alt="Foto Rina Wijaya" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">Rina Wijaya, M.Si.</h4>
+                            <p class="text-blue-500 font-semibold">Spesialis: Fisika & Biologi (SMP-SMA)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Sains itu bukan teori, tapi eksperimen yang bisa dilihat dan dirasakan!"</p>
+                    <h5 class="font-bold text-green-600 mb-2">Tutorial Belajar: Metode 'Eksplorasi Mandiri'</h5>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li>Simulasi Digital</li>
+                        <li>Mind Map Kreatif</li>
+                        <li>Jurnal Pertanyaan</li>
+                    </ul>
+                </div>
+
+                <!-- Mentor 3: Citra Dewi (Bahasa) - Menambahkan data-mentor dan onclick -->
+                <div class="mentor-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-500" onclick="showMentorDetail('Citra Dewi, S.Hum.', 'Bahasa Inggris & Indonesia (Semua Jenjang)', '#yellow-700', 'CD', 'Kuasai bahasa, kuasai dunia. Kuncinya adalah praktek dan percaya diri!','*Praktek Berbicara* (70% sesi digunakan untuk conversation atau diskusi topik); *Analisis Media* (Membedah lirik lagu atau cuplikan film berbahasa asing/Indonesia); *Grammar Visual* (Konsep tata bahasa diajarkan dengan grafik dan diagram, bukan hanya teks).')">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/80x80/fcd34d/000000?text=CD" alt="Foto Citra Dewi" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">Citra Dewi, S.Hum.</h4>
+                            <p class="text-yellow-700 font-semibold">Spesialis: Bahasa Inggris & Indonesia (Semua Jenjang)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Kuasai bahasa, kuasai dunia. Kuncinya adalah praktek dan percaya diri!"</p>
+                    <h5 class="font-bold text-red-600 mb-2">Tutorial Belajar: Metode 'Roleplay & Context'</h5>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li>Praktek Berbicara</li>
+                        <li>Analisis Media</li>
+                        <li>Grammar Visual</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cara Pendaftaran yang Menarik (Section 4) -->
+    <section id="daftar" class="py-16 md:py-24 bg-blue-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold mb-4">Cara Daftar Praktis, Raih Prestasi Fantastis!</h2>
+            <p class="text-xl font-light mb-12 max-w-3xl mx-auto opacity-90">Proses pendaftaran cepat, hanya 3 langkah mudah untuk menemukan mentor terbaik Anda. Klik langkahnya untuk detail!</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Langkah 1 -->
+                <div class="step-card bg-white p-6 rounded-xl shadow-2xl text-gray-900 transform transition duration-500 hover:scale-105" onclick="showStepDetail('Pilih Paket Impian', 'Anda harus memilih salah satu dari tiga paket unggulan kami: Paket Siap (8x/bulan), Paket Juara (16x/bulan - Paling Populer), atau Paket Kilat (Intensif). Paket Juara menawarkan tarif per pertemuan termurah.', 'jadwal')">
+                    <div class="w-12 h-12 flex items-center justify-center bg-green-500 text-white text-2xl font-bold rounded-full mx-auto mb-4">1</div>
+                    <h4 class="text-xl font-bold mb-3">Pilih Paket Impian</h4>
+                    <p class="text-gray-600">Pilih Paket Siap, Juara, atau Kilat yang sesuai dengan target belajar dan anggaran Anda.</p>
+                    <p class="mt-2 text-sm font-semibold text-green-600 hover:text-green-700 cursor-pointer">Lihat Detail Paket &raquo;</p>
+                </div>
+
+                <!-- Langkah 2 -->
+                <div class="step-card bg-white p-6 rounded-xl shadow-2xl text-gray-900 transform transition duration-500 hover:scale-105" onclick="showStepDetail('Isi Formulir Singkat', 'Lengkapi formulir pendaftaran di bawah ini dengan nama siswa, jenjang kelas, mata pelajaran utama, dan nomor WhatsApp aktif. Tim kami akan memproses data Anda dan mencarikan mentor yang paling sesuai dengan kriteria dan lokasi Anda.', 'daftar')">
+                    <div class="w-12 h-12 flex items-center justify-center bg-green-500 text-white text-2xl font-bold rounded-full mx-auto mb-4">2</div>
+                    <h4 class="text-xl font-bold mb-3">Isi Formulir Singkat</h4>
+                    <p class="text-gray-600">Isi formulir di bawah ini dengan detail nama, kelas, mata pelajaran, dan alamat Anda.</p>
+                    <p class="mt-2 text-sm font-semibold text-green-600">Sistem akan mencarikan mentor terbaik.</p>
+                </div>
+
+                <!-- Langkah 3 -->
+                <div class="step-card bg-white p-6 rounded-xl shadow-2xl text-gray-900 transform transition duration-500 hover:scale-105" onclick="showStepDetail('Mulai Belajar & Sukses', 'Setelah konfirmasi, mentor akan datang ke rumah Anda sesuai jadwal yang disepakati. Nikmati sesi belajar personal, modul premium, dan konsultasi 24/7. Selamat datang di jalan menuju prestasi!', 'mentor')">
+                    <div class="w-12 h-12 flex items-center justify-center bg-green-500 text-white text-2xl font-bold rounded-full mx-auto mb-4">3</div>
+                    <h4 class="text-xl font-bold mb-3">Mulai Belajar & Sukses</h4>
+                    <p class="text-gray-600">Mentor akan datang ke rumah Anda sesuai jadwal yang disepakati. Nikmati sesi belajar personal!</p>
+                    <p class="mt-2 text-sm font-semibold text-green-600">Gratis konsultasi 24/7 via WhatsApp.</p>
+                </div>
+            </div>
+
+            <!-- Formulir Pendaftaran -->
+            <div class="mt-16 max-w-2xl mx-auto bg-white p-8 md:p-10 rounded-xl shadow-3xl text-gray-900">
+                <h3 class="text-2xl font-extrabold text-blue-800 mb-6">Formulir Pendaftaran Cepat</h3>
+                <form id="registration-form">
+                    <div class="mb-4">
+                        <label for="nama" class="block text-left text-sm font-medium text-gray-700">Nama Lengkap Siswa</label>
+                        <input type="text" id="nama" name="nama" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Contoh: Bima Sakti" required>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="jenjang" class="block text-left text-sm font-medium text-gray-700">Jenjang/Kelas</label>
+                            <select id="jenjang" name="jenjang" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                                <option value="">Pilih Jenjang...</option>
+                                <option value="SD">SD</option>
+                                <option value="SMP">SMP</option>
+                                <option value="SMA">SMA</option>
+                                <option value="Umum">Umum (Bahasa/Komputer)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="mapel" class="block text-left text-sm font-medium text-gray-700">Mata Pelajaran Utama</label>
+                            <input type="text" id="mapel" name="mapel" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Contoh: Matematika & Fisika" required>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="nohp" class="block text-left text-sm font-medium text-gray-700">No. WhatsApp (Aktif)</label>
+                        <input type="tel" id="nohp" name="nohp" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500" placeholder="08xxxxxxxxxx" required>
+                    </div>
+                    <button type="submit" id="submit-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-extrabold py-3 rounded-full text-lg shadow-lg transition duration-300 transform hover:scale-[1.01]">
+                        Daftar & Klaim Promo Sekarang!
+                    </button>
+                    <div id="response-message" class="mt-4 p-3 bg-blue-100 text-blue-800 rounded-lg hidden"></div>
+                    <div id="loading-indicator" class="mt-4 p-3 bg-yellow-100 text-yellow-800 rounded-lg hidden">
+                        <p class="font-semibold">Memproses pendaftaran, mohon tunggu...</p>
+                    </div>
+                </form>
+                <p id="user-info" class="text-xs mt-4 text-gray-400">Status Auth: Memuat...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2024 PrivaKarsa - Les Privat Inovatif. Hak Cipta Dilindungi.</p>
+            <p class="mt-2">Hubungi Kami: WA +62 812-XXXX-XXXX | Email: info@privakarsa.com</p>
+        </div>
+    </footer>
+
+    <!-- Modal Struktur -->
+    <div id="myModal" class="modal">
+        <div class="modal-content md:max-w-lg lg:max-w-xl">
+            <span class="close-btn" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <div id="modal-body">
+                <!-- Konten modal akan diisi oleh JavaScript -->
+            </div>
+            <div class="mt-6 text-center">
+                 <button onclick="document.getElementById('myModal').style.display='none'" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, addDoc, collection, setLogLevel, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Variabel global dari lingkungan Canvas
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db;
+        let auth;
+        let userId = null;
+
+        // Inisialisasi Firebase dan Autentikasi
+        async function initFirebase() {
+            if (Object.keys(firebaseConfig).length === 0) {
+                console.error("Firebase config is missing. Cannot initialize Firestore.");
+                document.getElementById('user-info').textContent = 'Error: Firebase config hilang.';
+                return;
+            }
+
+            try {
+                // setLogLevel('Debug'); // uncomment untuk debug log
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // Autentikasi
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                // Listener untuk mendapatkan ID pengguna setelah autentikasi
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        document.getElementById('user-info').textContent = Status Auth: Terautentikasi | User ID: ${userId};
+                    } else {
+                        userId = crypto.randomUUID();
+                        document.getElementById('user-info').textContent = Status Auth: Anonim | Temporary ID: ${userId};
+                    }
+                });
+
+            } catch (error) {
+                console.error("Firebase initialization or sign-in failed:", error);
+                document.getElementById('user-info').textContent = Error: Gagal Auth. Cek konsol.;
+            }
+        }
+
+        // Fungsi untuk mengirim data ke Firestore
+        async function submitRegistration(data) {
+            const loading = document.getElementById('loading-indicator');
+            const messageBox = document.getElementById('response-message');
+            const submitBtn = document.getElementById('submit-btn');
+
+            loading.classList.remove('hidden');
+            messageBox.classList.add('hidden');
+            submitBtn.disabled = true;
+
+            if (!db || !userId) {
+                console.error("Firestore not initialized or user ID not available.");
+                messageBox.innerHTML = 'Gagal mendaftar: Koneksi database belum siap.';
+                messageBox.classList.remove('hidden', 'bg-blue-100', 'text-blue-800');
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+                loading.classList.add('hidden');
+                submitBtn.disabled = false;
+                return;
+            }
+
+            // Path collection publik untuk pendaftaran
+            const collectionPath = artifacts/${appId}/public/data/registrations;
+
+            try {
+                const docRef = await addDoc(collection(db, collectionPath), {
+                    ...data,
+                    userId: userId,
+                    timestamp: serverTimestamp()
+                });
+
+                const successMessage = Terima kasih, <span class="font-bold">${data.nama}</span>! Pendaftaran Anda untuk les privat ${data.mapel} telah kami terima (ID: ${docRef.id}). Kami akan segera menghubungi Anda melalui WhatsApp di nomor <span class="font-bold">${data.nohp}</span> untuk konfirmasi jadwal dan klaim promo!;
+
+                messageBox.innerHTML = successMessage;
+                messageBox.classList.remove('hidden', 'bg-red-100', 'text-red-800');
+                messageBox.classList.add('bg-blue-100', 'text-blue-800');
+                document.getElementById('registration-form').reset();
+
+            } catch (e) {
+                console.error("Error adding document to Firestore: ", e);
+                messageBox.innerHTML = Terjadi kesalahan saat menyimpan data: ${e.message}. Silakan coba lagi.;
+                messageBox.classList.remove('hidden', 'bg-blue-100', 'text-blue-800');
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+            } finally {
+                loading.classList.add('hidden');
+                submitBtn.disabled = false;
+            }
+        }
+
+        // --- Event Listener Formulir ---
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const data = {
+                nama: form.nama.value,
+                jenjang: form.jenjang.value,
+                mapel: form.mapel.value,
+                nohp: form.nohp.value,
+                // Alamat (tidak ada di form, tapi bisa ditambahkan di sini jika perlu)
+            };
+
+            // Panggil fungsi submit ke Firestore
+            submitRegistration(data);
+        });
+
+        // Panggil inisialisasi Firebase saat modul dimuat
+        initFirebase();
+
+        // Menyediakan fungsi-fungsi interaktif ke window global
+        window.showMentorDetail = (name, specialization, color, initials, quote, tutorial) => {
+            const modal = document.getElementById('myModal');
+            const modalBody = document.getElementById('modal-body');
+            
+            // Format tutorial menjadi list
+            const tutorialList = tutorial.split(';').map(item => <li class="mb-2">${item.trim()}</li>).join('');
+
+            modalBody.innerHTML = `
+                <div class="text-center mb-6">
+                    <img src="https://placehold.co/100x100/${color.replace('#', '')}/ffffff?text=${initials}" alt="Foto ${name}" class="w-24 h-24 rounded-full object-cover mx-auto ring-4 ring-green-500 mb-4">
+                    <h3 class="text-3xl font-extrabold text-gray-900">${name}</h3>
+                    <p class="text-xl font-semibold text-green-600">${specialization}</p>
+                </div>
+                <div class="p-4 bg-gray-50 rounded-lg mb-6">
+                    <p class="text-gray-700 italic text-lg">"${quote}"</p>
+                </div>
+                
+                <h4 class="text-2xl font-bold text-blue-700 mb-3">Metode Belajar Detail:</h4>
+                <ul class="list-disc pl-5 text-gray-800 text-left space-y-2">
+                    ${tutorialList}
+                </ul>
+                <p class="mt-4 text-sm text-gray-500">Mentor ini siap datang ke rumah Anda!</p>
+            `;
+            modal.style.display = "block";
+        };
+
+        window.showStepDetail = (title, detail, targetId) => {
+            const modal = document.getElementById('myModal');
+            const modalBody = document.getElementById('modal-body');
+            
+            modalBody.innerHTML = `
+                <h3 class="text-3xl font-extrabold text-blue-800 mb-4 text-center">${title}</h3>
+                <p class="text-lg text-gray-700 mb-6 text-center">${detail}</p>
+                <div class="text-center">
+                    <button onclick="document.getElementById('${targetId}').scrollIntoView({ behavior: 'smooth' }); document.getElementById('myModal').style.display='none'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                        Lanjut ke ${title.split(' ')[0]} &raquo;
+                    </button>
+                </div>
+            `;
+            modal.style.display = "block";
+        };
+
+        // --- Logika Timer (Dibiarkan tanpa Firestore) ---
+        function startCountdown() {
+            const NOW = new Date().getTime();
+            let countDownDate = NOW + (24 * 60 * 60 * 1000); // 24 jam dari sekarang
+
+            const x = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+                document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("hours").innerHTML = "00";
+                    document.getElementById("minutes").innerHTML = "00";
+                    document.getElementById("seconds").innerHTML = "00";
+                    document.querySelector('.promo-card').innerHTML = '<p class="text-3xl font-bold">Waktu Promo Telah Berakhir!</p><p class="mt-2">Silakan cek promo menarik kami berikutnya.</p>';
+                    document.getElementById('slots-left').innerHTML = '0';
+                }
+
+                // Simulasi slot tersisa
+                const initialSlots = 20;
+                // Hitung waktu berlalu dalam jam (berbanding terbalik)
+                const elapsedHours = Math.floor((NOW - (countDownDate - (24 * 60 * 60 * 1000))) / (60 * 60 * 1000));
+                const currentSlots = Math.max(0, initialSlots - Math.floor(elapsedHours / 1.2)); 
+                document.getElementById('slots-left').innerHTML = currentSlots;
+
+
+            }, 1000);
+        }
+
+        // Tambahkan event listener untuk menutup modal saat klik di luar area konten
+        window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // --- Mobile Menu Toggle ---
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+
+        // Mulai timer saat halaman dimuat
+        window.onload = startCountdown;
+    </script>
+</body>
