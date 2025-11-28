@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIREBON KEREN | Kota Wali & Kota Udang</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Konfigurasi Tailwind untuk warna dan font Inter -->
+    <style>
+        /* Menggunakan font Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* Definisi Warna Khas Cirebon */
+        .text-cirebon-dark { color: #8A3036; } /* Merah tua khas Keraton */
+        .bg-cirebon-light { background-color: #F8E7D8; } /* Krem muda Batik */
+        .border-cirebon { border-color: #C07C48; } /* Cokelat emas */
+        .shadow-cirebon { box-shadow: 0 10px 15px -3px rgba(138, 48, 54, 0.1), 0 4px 6px -2px rgba(138, 48, 54, 0.05); }
+        
+        /* CSS khusus untuk collapsible telah dihapus */
+    </style>
+</head>
+<body>
+    
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <h1 class="text-3xl font-extrabold text-cirebon-dark tracking-tight">
+                CIREBON <span class="text-yellow-600">KEREN</span>
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
+                <a href="#tentang" class="hover:text-cirebon-dark transition duration-300">Tentang</a>
+                <a href="#destinasi" class="hover:text-cirebon-dark transition duration-300">Destinasi</a>
+                <a href="#kuliner" class="hover:text-cirebon-dark transition duration-300">Kuliner</a>
+                <a href="#budaya" class="hover:text-cirebon-dark transition duration-300">Budaya & Sejarah</a>
+                <a href="#kontak" class="hover:text-cirebon-dark transition duration-300">Kontak</a>
+            </nav>
+            <!-- Tombol Menu Mobile -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-cirebon-dark hover:bg-gray-100 transition duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <a href="#tentang" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Tentang</a>
+            <a href="#destinasi" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Destinasi</a>
+            <a href="#kuliner" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kuliner</a>
+            <a href="#budaya" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Budaya & Sejarah</a>
+            <a href="#kontak" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-cirebon-light py-10 md:py-20 relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-xl sm:text-2xl text-gray-600 mb-4 font-semibold">Sugeng Rawuh Ning Kota Cirebon🦐</p>
+            <h2 class="text-5xl sm:text-7xl font-extrabold text-cirebon-dark leading-tight mb-6">
+                Kota Wali & Kota Udang
+            </h2>
+            <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+                Menjelajahi keunikan budaya Pesisir Utara Jawa. Nikmati pesona Batik Mega Mendung, sejarah Keraton, dan lezatnya Empal Gentong.
+            </p>
+            <a href="#destinasi" class="inline-block px-8 py-3 bg-cirebon-dark text-white font-bold text-lg rounded-full shadow-lg hover:bg-yellow-700 transition duration-300 transform hover:scale-105 mb-12">
+                Mulai Eksplorasi
+            </a>
+
+            <!-- Gambar utama -->
+            <div class="mt-10 max-w-6xl mx-auto">
+                <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/SELAMAT%20DATANG%20DI%20KOTA%20CIREBON.jpg?raw=true" 
+                     alt="Selamat Datang di Kota Cirebon" 
+                     class="w-full h-auto rounded-3xl shadow-2xl border-4 border-cirebon object-cover transform hover:scale-[1.01] transition duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- Kategori Utama Cirebon Kita -->
+    <section id="kategori" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-12">Kategori Utama Cirebon Kita</h3>
+            <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+                Temukan semua yang Anda cari tentang Cirebon, terbagi dalam lima topik utama yang menarik dan informatif.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-8">
+                <!-- Card Kategori 1: Sejarah -->
+                <div class="p-4 sm:p-6 bg-cirebon-light rounded-xl shadow-md text-center transform hover:scale-105 transition duration-300">
+                    <span class="text-4xl sm:text-5xl mb-3 block" role="img" aria-label="Castle">🏰</span>
+                    <h4 class="text-base sm:text-xl font-bold text-cirebon-dark">Sejarah</h4>
+                    <p class="text-xs sm:text-sm text-gray-700 mt-2">Menelusuri jejak Kerajaan dan Wali Songo.</p>
+                </div>
+                <!-- Card Kategori 2: Wisata -->
+                <div class="p-4 sm:p-6 bg-yellow-100 rounded-xl shadow-md text-center transform hover:scale-105 transition duration-300">
+                    <span class="text-4xl sm:text-5xl mb-3 block" role="img" aria-label="Palm Tree">🌴</span>
+                    <h4 class="text-base sm:text-xl font-bold text-yellow-700">Wisata</h4>
+                    <p class="text-xs sm:text-sm text-gray-700 mt-2">Destinasi alam, sejarah, dan modern.</p>
+                </div>
+                <!-- Card Kategori 3: Kuliner -->
+                <div class="p-4 sm:p-6 bg-red-100 rounded-xl shadow-md text-center transform hover:scale-105 transition duration-300">
+                    <span class="text-4xl sm:text-5xl mb-3 block" role="img" aria-label="Chopsticks">🍜</span>
+                    <h4 class="text-base sm:text-xl font-bold text-red-700">Kuliner</h4>
+                    <p class="text-xs sm:text-sm text-gray-700 mt-2">Rasa khas pesisir yang menggoda selera.</p>
+                </div>
+                <!-- Card Kategori 4: Budaya -->
+                <div class="p-4 sm:p-6 bg-purple-100 rounded-xl shadow-md text-center transform hover:scale-105 transition duration-300">
+                    <span class="text-4xl sm:text-5xl mb-3 block" role="img" aria-label="Mask">🎭</span>
+                    <h4 class="text-base sm:text-xl font-bold text-purple-700">Budaya</h4>
+                    <p class="text-xs sm:text-sm text-gray-700 mt-2">Seni, Batik, dan tradisi lokal.</p>
+                </div>
+                <!-- Card Kategori 5: Visi & Misi -->
+                <div class="p-4 sm:p-6 bg-blue-100 rounded-xl shadow-md text-center transform hover:scale-105 transition duration-300 col-span-2 sm:col-span-1 lg:col-span-1 mx-auto">
+                    <span class="text-4xl sm:text-5xl mb-3 block" role="img" aria-label="Scroll">📜</span>
+                    <h4 class="text-base sm:text-xl font-bold text-blue-700">Visi & Misi</h4>
+                    <p class="text-xs sm:text-sm text-gray-700 mt-2">Arah dan tujuan Cirebon ke depan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Cirebon & Sejarah Kota -->
+    <section id="tentang" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Sejarah Kota Cirebon (Updated Content) -->
+                <div>
+                    <span class="inline-block bg-cirebon-dark text-white text-xs font-bold px-3 py-1 rounded-full mb-3">SEJARAH KOTA</span>
+                    <h3 class="text-4xl font-bold text-gray-800 mb-4">Jejak Kerajaan dan Wali Songo di Cirebon</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Cirebon, yang terletak di pesisir utara Jawa, memiliki sejarah yang sangat kaya, memadukan elemen maritim, politik keraton, dan penyebaran agama Islam. Secara etimologis, nama Cirebon dipercaya berasal dari kata bahasa Sunda, "Cai Rebon" (air rebon), merujuk pada udang kecil yang melimpah dan industri terasi yang menjadi komoditas utama sejak era lampau.
+                    </p>
+
+                    <!-- 1. Masa Awal: Berdirinya Nagari Caruban Larang -->
+                    <h4 class="text-2xl font-semibold text-cirebon-dark mt-8 mb-3">1. Masa Awal: Berdirinya Nagari Caruban Larang</h4>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Sebelum menjadi Kesultanan, Cirebon dikenal sebagai Nagari Caruban Larang (artinya: campur aduk tanpa larangan) pada abad ke-15. Wilayah ini adalah pelabuhan kecil yang ramai dan menjadi tempat bertemunya berbagai etnis, seperti Jawa, Sunda, Arab, dan Tiongkok. Tokoh sentral pada masa ini adalah Pangeran Cakrabuwana (Raden Walangsungsang), putra Prabu Siliwangi dari Kerajaan Pajajaran. Setelah memeluk Islam, ia mendirikan permukiman dan pelabuhan di daerah pesisir, yang kemudian menjadi cikal bakal Kota Cirebon.
+                    </p>
+
+                    <!-- 2. Peran Sentral Sunan Gunung Jati -->
+                    <h4 class="text-2xl font-semibold text-cirebon-dark mt-8 mb-3">2. Peran Sentral Sunan Gunung Jati (Syarif Hidayatullah)</h4>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Titik balik sejarah Cirebon terjadi ketika Syarif Hidayatullah (cucu Pangeran Cakrabuwana) tiba dan menggantikan kakeknya sebagai pemimpin. Syarif Hidayatullah kemudian dikenal sebagai Sunan Gunung Jati, salah satu dari sembilan Wali Songo.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4 mb-4">
+                        <li><strong>Pendiri Kesultanan:</strong> Pada tahun 1482 M, Sunan Gunung Jati mendirikan Kesultanan Cirebon, melepaskan diri dari kekuasaan Kerajaan Pajajaran yang bercorak Hindu-Budha. Ini menandai Cirebon sebagai salah satu pangkalan Islam tertua dan terkuat di Jawa.</li>
+                        <li><strong>Penyebar Islam:</strong> Sunan Gunung Jati menggunakan pendekatan kultural dan perdagangan untuk menyebarkan Islam. Cirebon menjadi pusat dakwah yang strategis, menghubungkan Jawa Tengah, Jawa Barat, dan jalur perdagangan laut.</li>
+                        <li><strong>Kota Wali:</strong> Keberadaannya sebagai anggota Wali Songo mengukuhkan status Cirebon sebagai "Kota Wali" dan pusat perkembangan kebudayaan Islam pesisir yang kaya.</li>
+                    </ul>
+
+                    <!-- 3. Akulturasi Budaya dan Arsitektur Keraton -->
+                    <h4 class="text-2xl font-semibold text-cirebon-dark mt-8 mb-3">3. Akulturasi Budaya dan Arsitektur Keraton</h4>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Kekhasan Cirebon terletak pada akulturasi budayanya yang unik, terutama terlihat pada seni, bahasa, dan arsitektur.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4 mb-4">
+                        <li><strong>Batik Mega Mendung:</strong> Motif ikonik Cirebon ini merupakan hasil pengaruh seni Tiongkok yang melambangkan awan. Filosofinya mencerminkan sifat kepemimpinan yang luas dan teduh, serta kebesaran Allah.</li>
+                        <li><strong>Arsitektur Keraton:</strong> Keraton Kasepuhan dan Keraton Kanoman menampilkan gaya arsitektur yang memadukan unsur Jawa, Sunda, Tiongkok (seperti piring keramik yang menempel di tembok), dan Islam. Contohnya adalah Gapura Keraton Kasepuhan yang menyerupai candi Hindu, namun berisi kaligrafi Islam.</li>
+                        <li><strong>Kereta Singa Barong:</strong> Kereta kencana ini adalah simbol sinergi budaya, karena memadukan wujud tiga hewan: Gajah (India/Hindu), Naga (Tiongkok), dan Burung Buraq (Arab/Islam).</li>
+                    </ul>
+
+                    <!-- 4. Pembagian Wilayah (Tiga Serangkai Keraton) -->
+                    <h4 class="text-2xl font-semibold text-cirebon-dark mt-8 mb-3">4. Pembagian Wilayah (Tiga Serangkai Keraton)</h4>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Seiring berjalannya waktu dan demi menghindari perselisihan suksesi, Kesultanan Cirebon mengalami pembagian:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4 mb-6">
+                        <li><strong>Keraton Kasepuhan:</strong> Kedudukan Sultan sepuh, dianggap sebagai pewaris utama Kesultanan.</li>
+                        <li><strong>Keraton Kanoman:</strong> Kedudukan Sultan anom, pecahan dari Kasepuhan.</li>
+                        <li><strong>Keraton Kacirebonan:</strong> Keraton yang lebih kecil, didirikan belakangan.</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Meskipun secara politik Kesultanan Cirebon mengalami penurunan setelah datangnya VOC dan Belanda, warisan budaya dan keagamaan dari ketiga keraton ini tetap hidup dan menjadi daya tarik utama Kota Cirebon hingga kini.
+                    </p>
+
+
+                    <!-- Visi and Misi start here (Original Content) -->
+                    <h4 class="text-2xl font-semibold text-cirebon-dark mt-8 mb-3">Visi Kami</h4>
+                    <p class="text-gray-600 mb-4">
+                        Mewujudkan Cirebon sebagai pusat budaya, wisata, dan kuliner pesisir utara Jawa yang berkelanjutan dan mendunia.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-cirebon-dark mb-3">Misi Kami</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Mempromosikan keindahan pariwisata dan kekayaan kuliner Kota Cirebon kepada dunia.</li>
+                        <li>Melestarikan dan mengembangkan warisan budaya, termasuk Batik Trusmi dan seni tradisi.</li>
+                        <li>Meningkatkan kualitas pelayanan wisata dan infrastruktur kota.</li>
+                    </ul>
+                </div>
+
+                <!-- Gambar Ilustrasi Sejarah -->
+                <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-cirebon">
+                    <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/KOTA%20CIREBON.jpg?raw=true" alt="Cirebon Kota Wali" class="w-full h-auto object-cover transition duration-500 hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinasi Unggulan - Dibuat Visible Permanen -->
+    <section id="destinasi" class="py-20 bg-cirebon-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center text-cirebon-dark mb-4">Destinasi Unggulan Cirebon</h3>
+            <p class="text-center text-gray-700 text-xl mb-6">Jelajahi situs bersejarah yang kaya makna.</p>
+            
+            <!-- Konten Destinasi (Selalu Terlihat) -->
+            <div class="mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Destinasi 1: Keraton Kasepuhan -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/keraton%20kesepuhan.jpg?raw=true" alt="Keraton Kasepuhan" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-yellow-600 uppercase">Sejarah</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Keraton Kasepuhan</h4>
+                            <p class="text-gray-600">
+                                Pusat Kesultanan Cirebon yang paling bersejarah. Arsitekturnya memadukan unsur Jawa, Sunda, Islam, Tiongkok, dan Eropa, mencerminkan akulturasi budaya yang kaya.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Destinasi 2: Gua Sunyaragi -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Goa%20Sunyaragi.jpg?raw=true" alt="Gua Sunyaragi" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-yellow-600 uppercase">Wisata</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Gua Sunyaragi</h4>
+                            <p class="text-gray-600">
+                                Sebuah "Istana Air" yang unik dengan arsitektur menyerupai karang buatan. Tempat meditasi dan peristirahatan para Sultan Cirebon di masa lalu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Destinasi 3: Batik Trusmi -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/batik%20trusmi.jpg?raw=true" alt="Batik Trusmi" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-yellow-600 uppercase">Budaya</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Batik Trusmi</h4>
+                            <p class="text-gray-600">
+                                Sentra industri Batik Cirebon. Wajib dikunjungi untuk melihat proses pembuatan dan mendapatkan Batik Mega Mendung asli.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kuliner Khas Cirebon - Dibuat Visible Permanen -->
+    <section id="kuliner" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-4">Kuliner Khas Cirebon yang Menggugah Selera</h3>
+            <p class="text-center text-gray-600 text-xl mb-6">Jaminan cita rasa otentik yang tak terlupakan.</p>
+
+            <!-- Konten Kuliner (Selalu Terlihat) -->
+            <div class="mt-12">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Kuliner 1: Empal Gentong -->
+                    <div class="bg-red-50 rounded-lg p-4 text-center border border-red-200 shadow-sm">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Empal%20Gentong.jpg?raw=true" alt="Empal Gentong Soup" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h5 class="text-lg font-bold text-red-700">Empal Gentong</h5>
+                        <p class="text-sm text-gray-600">Daging sapi dan jeroan dimasak dengan kuah santan kaya rempah, dimasak dalam gentong tanah liat.</p>
+                    </div>
+                    <!-- Kuliner 2: Nasi Jamblang -->
+                    <div class="bg-green-50 rounded-lg p-4 text-center border border-green-200 shadow-sm">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Nasi%20Jamblang.jpg?raw=true" alt="Nasi Jamblang" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h5 class="text-lg font-bold text-green-700">Nasi Jamblang</h5>
+                        <p class="text-sm text-gray-600">Nasi porsi kecil dibungkus daun jati, disajikan dengan aneka lauk pauk yang variatif.</p>
+                    </div>
+                    <!-- Kuliner 3: Tahu Gejrot -->
+                    <div class="bg-yellow-50 rounded-lg p-4 text-center border border-yellow-200 shadow-sm">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Tahu%20Gejrot.jpg?raw=true" alt="Tahu Gejrot" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h5 class="text-lg font-bold text-yellow-700">Tahu Gejrot</h5>
+                        <p class="text-sm text-gray-600">Tahu pong goreng disiram kuah gula merah asam pedas yang segar.</p>
+                    </div>
+                    <!-- Kuliner 4: Docang -->
+                    <div class="bg-purple-50 rounded-lg p-4 text-center border border-purple-200 shadow-sm">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Docang.jpg?raw=true" alt="Docang" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h5 class="text-lg font-bold text-purple-700">Docang</h5>
+                        <p class="text-sm text-gray-600">Lontong, daun singkong, tauge, dan kerupuk disiram kuah oncom yang pedas dan gurih.</p>
+                    </div>
+                    <!-- Kuliner 5: Tahu Petis -->
+                    <div class="bg-blue-50 rounded-lg p-4 text-center border border-blue-200 shadow-sm">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Tahu%20Petis.jpg?raw=true" alt="Tahu Petis" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h5 class="text-lg font-bold text-blue-700">Tahu Petis</h5>
+                        <p class="text-sm text-gray-600">Tahu goreng hangat diisi dengan isian udang dan bumbu petis hitam yang kental.</p>
+                    </div>
+                    <!-- Kuliner 6: Kerupuk Melinjo -->
+                    <div class="bg-orange-50 rounded-lg p-4 text-center border border-orange-200 shadow-sm">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Kerupuk%20Melinjo.jpg?raw=true" alt="Kerupuk Melinjo" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h5 class="text-lg font-bold text-orange-700">Kerupuk Melinjo</h5>
+                        <p class="text-sm text-gray-600">Kerupuk emping melinjo dengan cita rasa khas Cirebon, cocok sebagai oleh-oleh.</p>
+                    </div>
+                    <!-- Kuliner 7: Nasi Lengko -->
+                    <div class="bg-teal-50 rounded-lg p-4 text-center border border-teal-200 shadow-sm">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Nasi%20Lengko.jpg?raw=true" alt="Nasi Lengko" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h5 class="text-lg font-bold text-teal-700">Nasi Lengko</h5>
+                        <p class="text-sm text-gray-600">Nasi, tempe, tahu, tauge, dan timun disajikan dengan bumbu kacang dan kecap manis.</p>
+                    </div>
+                    <!-- Kuliner 8: Mie Koclok -->
+                    <div class="bg-pink-50 rounded-lg p-4 text-center border border-pink-200 shadow-sm">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Mie%20Koclok.jpg?raw=true" alt="Mie Koclok" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h5 class="text-lg font-bold text-pink-700">Mie Koclok</h5>
+                        <p class="text-sm text-gray-600">Mi dengan kuah kental berwarna putih dari santan dan kaldu ayam, taburan suwiran ayam dan telur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benda Bersejarah & Kesenian Cirebon - Dibuat Visible Permanen -->
+    <section id="budaya" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-4">Warisan Budaya & Adat Istiadat Cirebon</h3>
+            <p class="text-center text-gray-600 text-xl mb-6">Mengungkap kekayaan seni, artefak kuno, dan tradisi kehidupan.</p>
+            
+            <!-- Konten Budaya (Selalu Terlihat) -->
+            <div class="mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Benda 1: Kereta Singa Barong -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Kereta%20Singa%20Barong.jpg?raw=true" alt="Kereta Singa Barong" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-cirebon-dark uppercase">Benda Sejarah</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Kereta Singa Barong</h4>
+                            <p class="text-gray-600">
+                                Kereta Kencana peninggalan Keraton Kasepuhan. Wujudnya gabungan tiga hewan mitologi (Gajah, Naga, Burung Buraq) yang melambangkan persatuan tiga agama besar.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Kesenian 1: Tari Topeng Cirebon -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/tari%20topeng.jpg?raw=true" alt="Tari Topeng Cirebon" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-cirebon-dark uppercase">Kesenian</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Tari Topeng Cirebon</h4>
+                            <p class="text-gray-600">
+                                Tarian klasik yang menggunakan topeng sebagai properti utama, menceritakan kisah-kisah epik dengan gerakan yang dinamis dan filosofis, awalnya seni keraton kini menjadi tarian rakyat.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Kesenian 2: Wayang Kulit Cirebon -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Wayang%20Kulit.jpg?raw=true" alt="Wayang Kulit Cirebon" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-cirebon-dark uppercase">Kesenian</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Wayang Kulit Cirebon (Cepak)</h4>
+                            <p class="text-gray-600">
+                                Berbeda dengan gaya Jawa Tengah, Wayang Cirebon memiliki bentuk dan pakem yang lebih tua, dikenal dengan sebutan Wayang Cepak atau Wayang Purwa Cirebon.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- TRADISI 1: Upacara Panjang Jimat (Mauludan) -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/6c77b36a86b323eebd175129b16379e0e32cda28/Tradisi%20Panjang%20Jimat%20.jpg?raw=true" alt="Upacara Panjang Jimat" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-red-600 uppercase">Tradisi Keagamaan</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Upacara Panjang Jimat (Maulud)</h4>
+                            <p class="text-gray-600">
+                                Puncak perayaan Maulid Nabi Muhammad SAW yang diselenggarakan di tiga keraton. Prosesinya berupa arak-arakan pusaka menuju Masjid Agung Sang Cipta Rasa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- TRADISI 2: Nadran (Sedekah Laut) -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/6c77b36a86b323eebd175129b16379e0e32cda28/Tradisi%20Nadran%20Asal%20Cirebon.jpg?raw=true" alt="Nadran Sedekah Laut" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-blue-600 uppercase">Tradisi Tahunan</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Nadran (Sedekah Laut)</h4>
+                            <p class="text-gray-600">
+                                Wujud syukur masyarakat nelayan atas hasil laut yang melimpah. Ditandai dengan arak-arakan perahu hias dan pelarungan sesaji ke tengah laut.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- TRADISI 3: Rebo Wekasan / Ngirap -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <!-- URL Gambar Diperbarui Sesuai Permintaan -->
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/6c77b36a86b323eebd175129b16379e0e32cda28/Tradisi%20Ngirab%20Warga%20Cirebon.jpg?raw=true" alt="Rebo Wekasan" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-red-600 uppercase">Tradisi Keagamaan</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Rebo Wekasan (Ngirap)</h4>
+                            <p class="text-gray-600">
+                                Dilaksanakan pada hari Rabu terakhir di bulan Safar untuk menolak bala. Dikenal juga sebagai tradisi 'Ngirap' yang berarti membersihkan diri dengan mandi di sungai atau petilasan.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Kesenian 3: Tarling -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <!-- URL Gambar Diperbarui -->
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/135bd0f422acc099def9adb8b9682f4788efd2e4/tarling.jpg?raw=true" alt="Musik Tarling" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-cirebon-dark uppercase">Kesenian</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Musik Tarling</h4>
+                            <p class="text-gray-600">
+                                Kesenian musik tradisional yang khas Cirebon dengan instrumen utama berupa gitar dan suling (dari akronim gitar dan suling), sering mengiringi lagu-lagu daerah.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Kesenian 4: Sintren -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:translate-y-[-5px] transition duration-300">
+                        <!-- URL Gambar Diperbarui -->
+                        <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/135bd0f422acc099def9adb8b9682f4788efd2e4/tari%20sintren.jpg?raw=true" alt="Kesenian Sintren" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-cirebon-dark uppercase">Kesenian</span>
+                            <h4 class="text-2xl font-bold text-gray-800 my-2">Sintren</h4>
+                            <p class="text-gray-600">
+                                Tarian tradisional yang dipercaya memiliki unsur mistis. Penari akan dirasuki roh bidadari dan menari dengan mata tertutup, sering dipentaskan untuk upacara tertentu.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artikel Terbaru Kami -->
+    <section id="artikel" class="py-20 bg-cirebon-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center text-cirebon-dark mb-12">🗞 Artikel Terbaru Kami</h3>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Artikel 1 -->
+                <article class="bg-white rounded-xl shadow-xl overflow-hidden">
+                    <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/batik%20trusmi%20.jpg?raw=true" alt="Batik Mega Mendung" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-cirebon-dark mb-2 block">BUDAYA | 1 Nov 2025</span>
+                        <h4 class="text-xl font-bold text-gray-800 hover:text-yellow-700 transition duration-300 cursor-pointer">Mega Mendung: Simbol Filosofis Cirebon</h4>
+                        <p class="text-gray-600 mt-2 text-sm">Mengupas tuntas filosofi di balik motif Mega Mendung, lambang awan pembawa hujan, yang ikonik dari Cirebon.</p>
+                    </div>
+                </article>
+                
+                <!-- Artikel 2 -->
+                <article class="bg-white rounded-xl shadow-xl overflow-hidden">
+                    <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Nasi%20Jamblang.jpg?raw=true" alt="Nasi Jamblang" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-cirebon-dark mb-2 block">KULINER | 25 Okt 2025</span>
+                        <h4 class="text-xl font-bold text-gray-800 hover:text-yellow-700 transition duration-300 cursor-pointer">Berburu Nasi Jamblang Terenak di Cirebon</h4>
+                        <p class="text-gray-600 mt-2 text-sm">Panduan lengkap menjelajahi warung Nasi Jamblang legendaris yang wajib Anda coba saat berkunjung ke Cirebon.</p>
+                    </div>
+                </article>
+
+                <!-- Artikel 3 -->
+                <article class="bg-white rounded-xl shadow-xl overflow-hidden">
+                    <img src="https://github.com/sarahmalahayati17/tugas-desain-web/blob/main/Goa%20Sunyaragi.jpg?raw=true" alt="Gua Sunyaragi" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-cirebon-dark mb-2 block">WISATA | 18 Okt 2025</span>
+                        <h4 class="text-xl font-bold text-gray-800 hover:text-yellow-700 transition duration-300 cursor-pointer">Misteri di Balik Keindahan Gua Sunyaragi</h4>
+                        <p class="text-gray-600 mt-2 text-sm">Menyingkap kisah dan makna spiritual dari arsitektur unik Istana Air Gua Sunyaragi.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Kami -->
+    <section id="kontak" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-6">Hubungi Kami</h3>
+            <p class="text-center text-gray-600 text-xl max-w-2xl mx-auto mb-12">
+                Ingin info lebih lanjut atau paket wisata Cirebon? Kami siap membantu.
+            </p>
+
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 bg-cirebon-light p-8 rounded-2xl shadow-cirebon">
+                <!-- Kontak Info -->
+                <div class="space-y-6 md:col-span-1">
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-6 h-6 text-cirebon-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <div>
+                            <p class="text-sm text-gray-600">Telepon / WhatsApp</p>
+                            <a href="tel:+62881022041216" class="text-lg font-semibold text-cirebon-dark hover:underline">0881022041216</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-6 h-6 text-cirebon-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div>
+                            <p class="text-sm text-gray-600">Email</p>
+                            <a href="mailto:sarahmalahayati170106@gmail.com" class="text-lg font-semibold text-cirebon-dark hover:underline">sarahmalahayati170106@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/62881022041216" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition duration-300 transform hover:scale-[1.02]">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.036 3.003c-4.975 0-9.006 4.032-9.006 9.007 0 1.571.413 3.09 1.198 4.417l-1.258 4.593 4.706-1.238c1.286.745 2.766 1.144 4.359 1.144 4.975 0 9.006-4.032 9.006-9.007s-4.031-9.007-9.006-9.007zm-2.004 14.509l-.497-.306c-.198-.122-.43-.186-.667-.186-.076 0-.152.008-.228.024-1.637.332-2.883-.913-2.55-2.55l.026-.124.08-.372.09-.418.106-.492c.005-.022.01-.044.015-.065l.004-.017.004-.015c.002-.01.004-.02.006-.03.002-.008.004-.016.006-.024.002-.008.004-.016.006-.024.004-.017.008-.033.012-.05.002-.008.004-.016.006-.024.006-.026.012-.052.018-.078.004-.017.008-.033.012-.05.006-.026.012-.052.018-.078.002-.008.004-.016.006-.024.008-.035.016-.07.024-.106.002-.008.004-.016.006-.024.008-.035.016-.07.024-.106.002-.008.004-.016.006-.024.01-.044.02-.088.03-.132.002-.008.004-.016.006-.024.01-.044.02-.088.03-.132.002-.008.004-.016.006-.024.008-.035.016-.07.024-.106.002-.008.004-.016.006-.024.01-.044.02-.088.03-.132.002-.008.004-.016.006-.024.012-.053.024-.106.036-.159.002-.008.004-.016.006-.024.014-.062.028-.124.042-.186.002-.008.004-.016.006-.024.016-.07.032-.14.048-.21.002-.008.004-.016.006-.024.018-.08.036-.16.054-.24.002-.008.004-.016.006-.024.02-.09.04-.18.06-.27.002-.008.004-.016.006-.024.023-.102.046-.204.069-.306l.006-.024c.002-.008.004-.016.006-.024.028-.12.056-.24.084-.36l.006-.024c.002-.008.004-.016.006-.024.032-.134.064-.268.096-.402l.006-.024c.002-.008.004-.016.006-.024.038-.16.076-.32.114-.48l.006-.024c.002-.008.004-.016.006-.024.044-.184.088-.368.132-.552l.006-.024c.002-.008.004-.016.006-.024.053-.222.106-.444.159-.666l.006-.024c.002-.008.004-.016.006-.024.065-.275.13-.55.195-.825l.006-.024c.002-.008.004-.016.006-.024.075-.316.15-.632.225-.948l.006-.024c.002-.008.004-.016.006-.024.088-.37.176-.74.264-1.11l.006-.024c.002-.008.004-.016.006-.024.102-.43.204-.86.306-1.29l.006-.024c.002-.008.004-.016.006-.024.116-.49.232-.98.348-1.47l.006-.024c.002-.008.004-.016.006-.024.132-.557.264-1.114.396-1.671.002-.008.004-.016.006-.024.15-.633.3-1.266.45-1.9.002-.008.004-.016.006-.024.167-.706.334-1.412.501-2.118l.006-.024c.002-.008.004-.016.006-.024.184-.775.368-1.55.552-2.325.002-.008.004-.016.006-.024.202-.855.404-1.71.606-2.565l.006-.024c.002-.008.004-.016.006-.024.22-.93.44-1.86.66-2.79l.006-.024c.002-.008.004-.016.006-.024.24-.1.46-.2.68-.3h.004c.002-.008.004-.016.006-.024.26-.11.52-.22.78-.33l.006-.024c.002-.008.004-.016.006-.024.28-.12.56-.24.84-.36l.006-.024c.002-.008.004-.016.006-.024.3-.13.6-.26.9-.39l.006-.024c.002-.008.004-.016.006-.024.33-.14.66-.28.99-.42l.006-.024c.002-.008.004-.016.006-.024.35-.15.7-.3.05-3.003z"/></svg>
+                        Chat via WhatsApp Sekarang
+                    </a>
+                </div>
+
+                <!-- Form Kontak (Placeholder) -->
+                <form class="space-y-4 md:col-span-2 bg-white p-6 rounded-xl shadow-inner">
+                    <h5 class="text-xl font-bold text-gray-800">Kirim Pesan ke Kami</h5>
+                    <div>
+                        <label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                        <input type="text" id="nama" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-cirebon-dark focus:ring-cirebon-dark p-2 border" placeholder="Nama Anda">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-cirebon-dark focus:ring-cirebon-dark p-2 border" placeholder="alamat@email.com">
+                    </div>
+                    <div>
+                        <label for="pesan" class="block text-sm font-medium text-gray-700">Pesan Anda</label>
+                        <textarea id="pesan" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-cirebon-dark focus:ring-cirebon-dark p-2 border" placeholder="Apa yang ingin Anda tanyakan?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-2 px-4 bg-cirebon-dark text-white font-bold rounded-md hover:bg-yellow-700 transition duration-300">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-center md:text-left mb-4 md:mb-0">
+                <p class="text-xl font-bold mb-1">CIREBON KEREN</p>
+                <p class="text-sm">Mempromosikan keindahan pariwisata dan kekayaan kuliner Kota Cirebon kepada dunia.</p>
+                <p class="text-xs mt-2">Editor: SARAH MAALAHAYATI</p>
+            </div>
+            <div class="flex space-x-4 text-sm">
+                <p>&copy; 2025 CIREBON KEREN</p>
+                <a href="#kontak" class="hover:text-cirebon-light transition duration-300">Hubungi Kami</a>
+                <a href="#" class="hover:text-cirebon-light transition duration-300">Tentang Kami</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript untuk Fungsionalitas Aplikasi -->
+    <script type="module">
+        // --- Inisialisasi Firebase (Boilerplate) ---
+        // Boilerplate disediakan untuk keperluan penyimpanan data persisten di masa depan.
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Variabel global dari lingkungan Canvas
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db;
+        let auth;
+
+        async function initFirebase() {
+            if (firebaseConfig && Object.keys(firebaseConfig).length > 0) {
+                try {
+                    const app = initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+                    
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                    console.log("Firebase Auth success.");
+                } catch (error) {
+                    console.error("Firebase Auth failed:", error);
+                }
+            }
+        }
+        // --- Akhir Inisialisasi Firebase ---
+
+
+        // --- Event Listeners dan Fungsionalitas Umum ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inisialisasi Firebase
+            initFirebase();
+            
+            // Script untuk smooth scroll 
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Sembunyikan menu mobile setelah klik
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                });
+            });
+
+            // Toggle Menu Mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
